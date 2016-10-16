@@ -25,3 +25,52 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareasCortas
+{
+    class TC07
+    {
+        public object caracteresFrecuetes(object[] arreglo, int k)
+        {
+            object[] resultado = new object[k]; // variable donde vamos a almacenar los 'K' caracteres mas frecuentes, y que luego retornaremos.
+
+            //variable tipo Dictionary donde vamos a almacenar todos caracteres del arreglo que pasamos por parametro.
+            //donde guardaremos tanto los caracteres como la cantidad de veces que cada caracter se repite en el arreglo
+            Dictionary<object, int> caracteresRepetidos = new Dictionary<object, int>();
+            int contador = 0;
+
+            foreach (object caracter in arreglo) //aqui recorremos todo el arreglo
+            {
+                if (caracteresRepetidos.ContainsKey(caracter)) //preguntamos si el caracter del arreglo en el indice especifico existe en el diccionario
+                {
+                    caracteresRepetidos[caracter]++;            //si el caracter exite, se le suma 1 al 'value' que en este caso será el contador de dicho caracter
+                }
+                else
+                {
+                    caracteresRepetidos.Add(caracter, 1);       //si el caracter NO existe, se agrega el caracter al diccionario
+                }
+            }
+
+            //a la variable "diccionarioOrdenDescendiente" se le pasan los datos del diccionario(caracteresRepetidos), pero en orden descendiente
+            var diccionarioOrdenDescendiente = from Pair in caracteresRepetidos orderby Pair.Value descending select Pair;
+            
+
+            foreach (var item in diccionarioOrdenDescendiente) //recorremos el diccionario de orden descendiente
+            {
+                if(contador < k)                           //para obtener los 'K' caracteres, utilizamos un contador que nos permite obtener el caracter
+                {                                           //en el indice respectivo del diccionario(item),
+                    resultado[contador] = item.Key;         //almacenamos los 'K' cantidad de caracteres mas frecuentes en la variable "resultado"
+                    
+                }
+                contador++;
+            }
+            return resultado;
+        }  
+    }
+}
