@@ -26,3 +26,29 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareasCortas
+{
+    class TC09
+    {
+        public string rotacionPalabras(string palabras)
+        {
+            string[] separadorPalabra = palabras.Split(' '); //separamos el string que pasamos por parametro, y almacenamos cada palabra en un espacio de un array
+            string nuevaCadenaPalabras = ""; //variable donde se almacena el nuevo string
+
+            //recorremos cada campo del array, 
+            //empezando por el campo del indice mayor hasta llegar al campo del indice menor
+            for (int indice = separadorPalabra.Length -1; indice >= 0; indice--)  
+            {
+                nuevaCadenaPalabras += separadorPalabra[indice] + " ";  //concatenamos el contenido del campo del array del indice especifico
+            }
+            return nuevaCadenaPalabras;
+        }
+    }
+}
