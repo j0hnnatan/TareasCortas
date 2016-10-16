@@ -23,3 +23,37 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareasCortas
+{
+    class TC16
+    {
+        public void fibonacci()
+        {
+            //se declaran las variables de tipo "BigInteger" para que se les pueda asignar numeros de gran tamaño
+            BigInteger numeroTrasanterior = 0;
+            BigInteger numeroAnterior = 1;
+            BigInteger numeroFibonacci = 0;
+
+            Console.WriteLine("{0}", numeroTrasanterior);
+            Console.WriteLine("{0}", numeroAnterior);
+
+            for (int contador = 2; contador < 100; contador++) //recorre la cantidad de veces que queremos en la secuencia fibonacci
+            {
+                numeroFibonacci = numeroTrasanterior + numeroAnterior;
+                Console.WriteLine("{0}", numeroFibonacci); // se imprimen los numeros de la secuencia
+
+                numeroTrasanterior = numeroAnterior; //a la variable "numeroTrasanterior" se le asigna el valor de la varible "numeroAnterior"
+                numeroAnterior = numeroFibonacci;    //a la variable "numeroAnterior" se le asigna el valor de la variable "numeroFibonacci", para convertirse en el numero anterior de la siguiente secuencia
+            }
+            Console.ReadKey();
+        }
+    }
+}
