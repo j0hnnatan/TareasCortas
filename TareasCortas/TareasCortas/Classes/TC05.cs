@@ -14,7 +14,7 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 /*
-	Tarea Corta 1
+	Tarea Corta 5
 	Estudiante: [Johnnatan Segura Araya]
 	
 	Enunciado:
@@ -26,3 +26,36 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace TareasCortas
+{
+    class TC05
+    {
+        public int compararVersiones (string version1,string version2)
+        {
+            /*decidí utilizar la clase Version, y luego comparar las dos versiones con le metodo CompareTo porque eso me elimina el problema de comparar cada substring
+             * de cada cadena sin que se salga del rango si alguna version tiene mas numeros que la otra version
+             */
+            int retorno = 0;
+            Version version_1 = new Version(version1); // asigna a la variable de tipo Version el primer parametro
+            Version version_2 = new Version(version2); // asigna a la variable de tipo Version el segundo parametro
+
+            switch (version_2.CompareTo(version_1)) //compara las dos versiones y devuelve un entero dependiendo del resultado de la comparacion 
+            {                                       //que se sera utilizado para entra a alguno de los casos del switch
+
+
+                case 0: retorno = 0; break;         //si ls versiones son iguales devuelve cero
+                case 1: retorno = 1; break;         //si "version_1" es mayor que "version_2" devuelve -1
+                case -1: retorno = -1; break;       //si "version_1" es menor que "version_2" devuelve 1
+            }
+            return retorno; 
+        }
+    }
+}
