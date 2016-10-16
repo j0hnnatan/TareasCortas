@@ -23,3 +23,33 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareasCortas
+{
+    class TC10
+    {
+        public string palabrasInvertidas (string cadena)
+        {
+            string[] palabras = cadena.Split(' '); //separamos el string que pasamos por parametro, y almacenamos cada palabra en un espacio de un array
+            string nuevaCadena = "";   //variable donde se almacena el nuevo string con las palabras invertidas
+
+            //recorremos cada campo del array
+            //para invertir cada palabra que se encuentra en cada campo del array
+            for (int i = 0; i < palabras.Length; i++)
+            {
+                //a la variable "palabras_invertidas" se le asigna la palabra almacenada en el indice especifico del campo del array
+                //pero dichas palabras las almacena de forma invertida 
+                string palabras_invertidas = new string( palabras[i].Reverse().ToArray());
+
+                nuevaCadena += palabras_invertidas +  " "; // se concatena cada palabra invertida
+            }
+            return nuevaCadena;
+        }
+    }
+}
