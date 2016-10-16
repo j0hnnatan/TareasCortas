@@ -23,3 +23,48 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareasCortas
+{
+    class TC20
+    {
+        public void numerosPrimos (int numero)
+        {
+            bool esPrimo = true;
+            int contadorDivisores = 0;
+
+            for (int divisor = 1; divisor <= numero; divisor++) //
+            {
+                if (numero % divisor == 0)  //preguntamos si el numero es divisible entre la variable "divisor"
+                {
+                    contadorDivisores++;  //si el numero es divisible entre la variable "divisor" se aunmenta en uno el contador de divisores
+
+                    if (contadorDivisores > 2)  //preguntamos si el contador de divisores es mayor a 2,
+                    {                           // esto porque un numero primo solo puede tener dos divisores (el 1 y el mismo numero)
+
+                        esPrimo = false; //si existen mas de dos divisores el numero NO es primo, y se le asigna un 'false' a la variable "esPrimo"
+                        break;           //por tanto no es necesario realizar mas divisiones.
+                    }                    
+                }
+            }
+
+            //imprimimos el numero, y si dicho numero es primo o no
+            //segun la variable "esPrimo"
+            if (esPrimo)
+            {
+                Console.WriteLine("El numero {0} es primo", numero);
+            }
+            else
+            {
+                Console.WriteLine("El numero {0} no es primo",numero);
+            }
+            Console.ReadKey();
+        }
+    }
+}
