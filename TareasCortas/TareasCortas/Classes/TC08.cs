@@ -38,6 +38,7 @@ using System.Threading.Tasks;
 
 namespace TareasCortas
 {
+    class TC08 
     {
         public bool validezParentesis (string cadena)
         {
