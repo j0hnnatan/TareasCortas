@@ -25,3 +25,29 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareasCortas
+{
+    class TC06
+    {
+        public string nuevopalindromo (string cadena)
+        {
+            string cadenaInvertida = new string(cadena.Reverse().ToArray()); //se invierte la cadena que pasamos por parametro y la asignamos a la variable "cadenaInvertida"
+
+            //aqui formamos el palindromo mas corto posible 
+            //concatenando la cadena que pasamos por parametro 
+            //y la variable "cadenaInvertida" pero quitandole la primera letra de esta variable, que en este caso seria igual a la  primera letra de la cadena que pasamos por parametro
+            //esto para formar el palindromo mas corto
+            string nuevaCadenaPalindromo = cadena + cadenaInvertida.TrimStart(cadena[cadena.Length -1]);
+                                                                        //   ^      ^      ^
+            return nuevaCadenaPalindromo;                               //   |      |      |
+                                                                        // primera letra de la cadena que pasamos por parametro
+        }
+    }
+}
