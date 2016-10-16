@@ -14,7 +14,7 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 /*
-	Tarea Corta 1
+	Tarea Corta 19
 	Estudiante: [Johnnatan Segura Araya]
 	
 	Enunciado:
@@ -25,3 +25,45 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareasCortas
+{
+    class TC19
+    {
+        public int[] elementosUnicos(int[] arreglo_1, int[] arreglo_2)
+        {
+            //variable tipo List donde vamos a almacenar todos caracteres del arreglo que pasamos por parametro.
+            List<int> elementos_unicos = new List<int>();
+
+            foreach (var elemento in arreglo_1) //recorremos el primer arreglo
+            {
+                if (!elementos_unicos.Contains(elemento)) //preguntamos si el elemento no esta en la lista
+                {
+                    elementos_unicos.Add(elemento); //si el elemento NO se econtro, se agrega el elemento a la lista
+                }
+            }
+
+            foreach (var elemento in arreglo_2) //recorremos el segundo arreglo
+            {
+                if (!elementos_unicos.Contains(elemento)) //preguntamos si el elemento no esta en la lista
+                {
+                    elementos_unicos.Add(elemento); //si el elemento NO se econtro, se agrega el elemento a la lista
+                }
+            }
+
+            //a la variable "listaOrdenAscendiente" se le pasan los datos de la lista(elementos_unicos), pero en orden ascendiente
+            var listaOrdenAscendiente = from Pair in elementos_unicos orderby Pair ascending select Pair;
+
+            //se le asingan los numeros de la lista al nuevo arreglo
+            int[] resultado = listaOrdenAscendiente.ToArray();
+
+            return resultado;
+        }
+    }
+}

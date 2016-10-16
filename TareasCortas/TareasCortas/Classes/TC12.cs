@@ -48,14 +48,14 @@ namespace TareasCortas
                 caracteresRepetidos.Add(elemento); // se agrega el caracter al diccionario
             }
 
-            //a la variable "diccionarioOrdenDescendiente" se le pasan los datos de la lista(caracteresRepetidos), pero en orden descendiente
-            var diccionarioOrdenDescendiente = from Pair in caracteresRepetidos orderby Pair descending select Pair;
+            //a la variable "listaOrdenDescendiente" se le pasan los datos de la lista(caracteresRepetidos), pero en orden descendiente
+            var listaOrdenDescendiente = from Pair in caracteresRepetidos orderby Pair descending select Pair;
 
 
-            foreach (var elemento in diccionarioOrdenDescendiente) //recorremos la lista de orden descendiente
+            foreach (var elemento in listaOrdenDescendiente) //recorremos la lista de orden descendiente
             {
                 if (contador == k)                           //para obtener el k-esimo elemento en el arreglo ordenado, utilizamos un contador que nos permite obtener el caracter
-                {                                           //en el indice respectivo del diccionario(elemento),
+                {                                           //en el indice respectivo de la lista(elemento),
                     resultado = elemento;                   //almacenamos el k-esimo elemento en la variable "resultado"
                     contador++;
                 }
