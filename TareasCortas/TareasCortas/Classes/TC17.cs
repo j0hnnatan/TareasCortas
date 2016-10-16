@@ -14,7 +14,7 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 /*
-	Tarea Corta 1
+	Tarea Corta 17
 	Estudiante: [Johnnatan Segura Araya]
 	
 	Enunciado:
@@ -28,3 +28,45 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareasCortas
+{
+    class TC17
+    {
+        public void caracteresRepetidos(string cadena)
+        {
+            //variable tipo Dictionary donde vamos a almacenar todos caracteres de la cadena que pasamos por parametro.
+            //donde guardaremos tanto los caracteres como la cantidad de veces que cada caracter se repite en el arreglo
+            Dictionary<object, int> caracteresRepetidos = new Dictionary<object, int>();
+
+            foreach (object caracter in cadena) //aqui recorremos todo la cadena, caracter por caracter
+            {
+                if (caracteresRepetidos.ContainsKey(caracter)) //preguntamos si el caracter de la cadena existe en el diccionario
+                {
+                    caracteresRepetidos[caracter]++;            //si el caracter exite, se le suma 1 al 'value' que en este caso será el contador de dicho caracter
+                }
+                else
+                {
+                    caracteresRepetidos.Add(caracter, 1);       //si el caracter NO existe, se agrega el caracter al diccionario
+                }
+            }
+
+            foreach (var item in caracteresRepetidos) //recorremos el diccionario 
+            {
+                //preguntamos si el caracter(item.value) de la cadena esta repetido,
+                //osea el contador de dicho caracter(item.key) es mayor que 1,
+                if (caracteresRepetidos[item.Key] > 1)   
+                {                                       
+                    Console.WriteLine("{0} => {1}",item.Key,item.Value); // se imprime el caracter y las veces que se repite en la cadena
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
