@@ -14,7 +14,7 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 /*
-	Tarea Corta 1
+	Tarea Corta 15
 	Estudiante: [Johnnatan Segura Araya]
 	
 	Enunciado:
@@ -23,3 +23,35 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareasCortas
+{
+    class TC15
+    {
+        public int numeroDuplicado (int[] arreglo)
+        {
+            int resultado = 0;
+
+            List<int> elementosArreglo = new List<int>();
+
+            foreach (int elemento in arreglo) //aqui recorremos todo el arreglo
+            {
+                if (elementosArreglo.Contains(elemento)) //preguntamos si el elemento del arreglo en el indice especifico existe en la lista
+                {
+                    resultado = elemento;               //si el caracter exite, se le asigna a la variable "resultado" el elemento duplicado
+                }
+                else
+                {
+                    elementosArreglo.Add(elemento);     //si el elemento NO existe, se agrega el elemento a la lista
+                }
+            }     
+            return resultado;
+        }
+    }
+}
