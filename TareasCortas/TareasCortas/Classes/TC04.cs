@@ -24,3 +24,32 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareasCortas
+{
+    class TC04
+    {
+        public bool palindromo(string palabra)
+        {
+            /* Decidí escoger esta solucion porque me parecio efectiva y simple, ademas que utiliza poco codigo y mas facil entender lo que se quiere hacer.
+               en vez de comparar caracter por caracter por me parecio mas dificil de programar.
+             */
+            string palabraInvertida = new string(palabra.Reverse().ToArray()); // se le asigna a la variable el string por parametro pero invertido.
+
+            if (palabra.ToLower().Equals(palabraInvertida.ToLower())) // se comparan las dos variables,"palabraInvertida" y "palabra".
+            {                                                         //poniendo los caracteres de ambas variables en minusculas para que compare si los caracteres son iguales  
+                return true;                                          // sin importar si estos estan en mayuscula o minuscula
+            }
+            else  //si son igules retorna 'true', pero si son diferentes retorna 'false'.
+            {
+                return false;
+            }            
+        }
+    }
+}
