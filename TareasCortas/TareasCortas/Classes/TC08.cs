@@ -14,7 +14,7 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 /*
-	Tarea Corta 1
+	Tarea Corta 8
 	Estudiante: [Johnnatan Segura Araya]
 	
 	Enunciado:
@@ -29,3 +29,39 @@ Cada tarea tendra un id, el metodo de entrega sera el siguiente:
 */
 
 //Your code starts here
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TareasCortas
+{
+    {
+        public bool validezParentesis (string cadena)
+        {
+            bool validez = false;
+            int parentesisAbierto = 0; //variable que almacena la cantidad de veces que hay el elemento "(" en la cadena.
+            int parentesisCerrado = 0; //variable que almacena la cantidad de veces que hay el elemento ")" en la cadena.
+
+            foreach (var item in cadena)    //recorremos cada elemento de la cadena y la evaluamos
+            {
+                if (item.Equals('('))       //si el elemento es un parentesis abierto "("
+                {                           //se incrementa la variable "parentesisAbierto" en uno
+                    parentesisAbierto++;
+                }
+                else                        //si el elemento es un parentesis cerrado ")"
+                {                           //se incrementa la variable "parentesisCerrado" en uno
+                    parentesisCerrado++;
+                }
+            }
+            
+            if (parentesisAbierto == parentesisCerrado) //comparamos la cantidad de elementos de cada tipo de parentesis del string recibido
+            {
+                validez = true;  //si la cantidad de elementos de cada tipo de parentesis es igual, retornara true
+            }
+            return validez;
+        }
+    }
+}
